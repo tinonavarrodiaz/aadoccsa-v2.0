@@ -11,7 +11,7 @@
   margin-top: 2rem;
 
   @media (min-width: 1024px) {
-    font-size: get-vw(45px);
+    font-size: get-vw(60px) !important;
   }
 
   & span {
@@ -27,13 +27,18 @@
   // }
 
   @media (min-width: 1400px) {
-    padding: 0em 15%;
+    // padding: 0em 20%;
   }
 }
 
 .page-container {
   padding: 2em;
   text-align: center;
+
+  @media (min-width: 1024px) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
   h2,
   p {
