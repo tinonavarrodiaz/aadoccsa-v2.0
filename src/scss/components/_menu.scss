@@ -1,0 +1,127 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+
+
+.main-nav {
+  // background: lightcoral;
+  width: 90%;
+  padding: 1em 0;
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgba(#fff, .5);
+  border-left: none;
+  border-right: none;
+  position: relative;
+  color: #fff;
+  height: 4em;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    top: 16%;
+    left: 0;
+    background: hsl(195, 42%, 45%);
+
+    @media (min-width: 1024px) {
+      background: transparent;
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0;
+    height: 4em;
+    width: 95%;
+  }
+
+  @media (min-width: 1600px) {
+    width: 90%;
+  }
+}
+
+.main-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 110%;
+  background: hsl(199, 34%, 58%);
+  width: 100%;
+  font-size: 1.3em;
+  font-family: var(--font-title);
+  max-height: 0;
+  transition: max-height .3s ease-in-out;
+  overflow: hidden;
+  // text-transform: uppercase;
+  z-index: 10;
+
+  &.is-active {
+    max-height: calc(2em * 9);
+  }
+
+  a {
+    display: block;
+    padding: 0 1em;
+    line-height: 2em;
+  }
+
+  @media (min-width: 1024px) {
+    background: transparent;
+    position: static;
+    flex-direction: row;
+    max-height: unset;
+    overflow: unset;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+
+    li {
+      height: 100%;
+      position: relative;
+
+      &::after {
+        // display: none;
+        content: '';
+        position: absolute;
+        height: 60%;
+        width: 1px;
+        background: rgba(#fff, .5);
+        top: 50%;
+        right: calc(var(--column-gap) * -2px);
+        right: 0;
+        transform: translateY(-50%) translateX(.5em);
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+
+    a {
+      // height: 100%;
+      // background: #000;
+      font-size: get-vw(26px);
+      // font-size: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 4em;
+      height: 100%;
+
+      &.selected,
+      &:hover {
+        color: hsl(196, 42%, 30%);
+      }
+    }
+  }
+
+  // @media (min-width: 1400px) {
+  //   a {
+  //     font-size: get-vw(20px);
+  //   }
+  // }
+}

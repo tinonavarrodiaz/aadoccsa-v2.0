@@ -1,0 +1,67 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+.Reglamento{
+  // background: lime;
+  color: var(--color-secondary);
+  padding: 0 1.5em;
+  padding-top: 4em;
+  padding-bottom: 3em;
+  @media (width > 1024px){
+    padding: 0 get-vw(150px);
+    padding-top: get-vw(245px);
+    padding-bottom: get-vw(268px);
+  }
+  &__logo{
+    // opacity: 0;
+    width: 40%;
+    margin: 0 auto;
+    display: block;
+    max-width: 200px;
+    @media (width > 1024px){
+      width: get-vw(220px);
+      margin-bottom: get-vw(131px);
+    }
+  }
+  h1{
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--font-secondary);
+    margin-bottom: 2rem;
+    font-size: 5.5vw;
+    color: var(--color-secondary);
+    letter-spacing: 2px;
+    margin-top: 3rem;
+    @media (width > 1024px){
+      font-size: get-vw(57px);
+      margin-bottom: get-vw(60px);
+    }
+  }
+  h3{
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  p{
+    line-height: 1.5em;
+    margin-bottom: 0;
+  }
+  h3,p{
+    @media (width > 1024px){
+      font-size: get-vw(35px);
+    }
+  }
+  &__body{
+  }
+  &__slogan{
+    width: 50%;
+    max-width: 200px;
+    margin: 3em auto 0;
+    display: block;
+    @media (width > 1024px){
+      width: get-vw(410px);
+      max-width: unset;
+      margin-top: get-vw(240px);
+    }
+  }
+}

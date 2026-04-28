@@ -1,11 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Slider from '@/components/Slider';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Cards from '@/components/home/Cards.astro';
+import { CardsHome } from '@/data/cards';
+import Videos from '@/components/home/Videos.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout page="index">
+  <Slider client:load/>
+	<h1 class="title-page"><span>Ponemos</span> a su disposición el <span>más alto</span> nivel de <span>servicio</span></h1>
+  <article class="card-grid">
+    {
+      CardsHome.map((item:any)=>(
+        <Cards title={item.title} content={item.description} link={item.link}/>
+      ))
+    }
+  </article>
+  <h2 class="title-page">Sabemos lo que usted necesita<br/><span>Porque somos líderes</span></h2>
+  <Videos/>
 </Layout>

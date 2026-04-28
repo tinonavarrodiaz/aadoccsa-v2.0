@@ -1,0 +1,22 @@
+---
+import Video from "@/components/Video.astro";
+import { imagesPanels } from "@/data/panels";
+import LayoutPage from "@/layouts/LayoutPage.astro";
+---
+
+<LayoutPage banner="/img/slider/slider0.webp" page="Paneles Solares">
+  <h2>Paneles Solares</h2>
+  <p>Contamos con una gran variedad de paneles solares para satisfacer las necesidades de nuestros clientes, desde paneles solares para calentadores solares, hasta paneles solares fotovoltaicos para generación de energía eléctrica.</p>
+  <div class="images-grid">
+    {
+      imagesPanels.map((img,i)=>(
+        <div class="img-containes">
+          <img src={`/img/paneles/${img}`} alt={`Imagen Panel ${i}`}/>
+        </div>
+      ))
+    }
+    <div class="img-containes">
+      <Video id={'om21xiypVmA'} />
+    </div>
+  </div>
+</LayoutPage>

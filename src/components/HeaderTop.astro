@@ -1,0 +1,45 @@
+---
+
+import { contact } from "@/data/contact";
+const { address, whatsapp } = contact;
+
+const formatPhone = (phone:string) => {
+  const str = phone.toString();
+  return `${str.slice(0, 2)} ${str.slice(2, 6)} ${str.slice(6)}`;
+};
+const phoneText:any = []
+
+whatsapp.forEach((phone) => {
+  phoneText.push(formatPhone(phone));
+});
+---
+
+
+<div class="Header__top">
+  <p class="Header__adress">{address}</p>
+  <ul class="Header__phones">
+    {
+      whatsapp.map((phone,i) => (
+        <li>
+          <a href={`https://wa.me/+521${phone}`} target="_blank" rel="noopener noreferrer">{phoneText[i]}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<!-- <script>
+  const formatPhone = (phone:string) => {
+    const str = phone.toString();
+    return `${str.slice(0, 2)} ${str.slice(2, 6)} ${str.slice(6)}`;
+  };
+  const phoneElements = document.querySelectorAll('.Header__phone a');
+
+  phoneElements.forEach((element) => {
+    const phone = element.textContent;
+    console.log(phone);
+    if (phone) {
+      element.textContent = formatPhone(phone);
+    }
+  });
+</script> -->

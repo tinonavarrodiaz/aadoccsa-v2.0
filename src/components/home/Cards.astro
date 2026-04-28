@@ -1,0 +1,29 @@
+---
+type Content = {
+  type: string;
+  content: string;
+  className?:string
+}
+
+interface Props {
+  title: string;
+  content: Content[];
+  link: string;
+}
+
+const { title, content, link } = Astro.props;
+---
+
+<ul class="Card">
+  <h2>{title}</h2>
+  {content.map((item) => (
+    <Fragment>
+      {item.type === 'string' ? (
+        <li>{item.content}</li>
+      ) : (
+        <li><img src={item.content} alt="imagem Card" class={item.className}/></li>
+      )}
+    </Fragment>
+  ))}
+  <a href={link}>Ver Más</a>
+</ul>

@@ -1,0 +1,117 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.Form {
+  background: var(--color-footer);
+  font-family: var(--font-secondary);
+  // background: lime;
+  padding-bottom: 0em !important;
+  &__img {
+    display: none;
+  }
+  @include from(lg) {
+    display: grid;
+    grid-template-columns: 70%;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding: get-vw(100px) 0;
+    &__img {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      picture,
+      img {
+        margin: 0 auto;
+        // opacity: .2;
+        height: auto;
+        width: 60%;
+      }
+    }
+  }
+}
+.contact-form {
+  padding: 10%;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #4c533f;
+
+  .input-group {
+    margin-bottom: 2.5em;
+    position: relative;
+    width: 100%;
+    color: inherit;
+  }
+  input,
+  label,
+  textarea {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-family: inherit;
+    padding: 0 0.5em;
+    font-size: 1.05em;
+    @include from(lg) {
+      font-size: get-vw(24px);
+    }
+  }
+  label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    // top: -.75em;
+  }
+  input,
+  textarea {
+    height: 2em;
+    padding: 0.5em;
+    border-bottom: 1px solid #4c533f;
+    resize: none;
+    transition: height 0.5s ease;
+    overflow: hidden;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  input:not(:placeholder-shown) ~ label,
+  textarea:not(:placeholder-shown) ~ label,
+  input:focus ~ label,
+  textarea:focus ~ label {
+    top: -0.5em;
+    font-size: 1em;
+  }
+  textarea:not(:placeholder-shown),
+  textarea:focus {
+    height: 5em;
+    overflow: auto;
+  }
+  button {
+    background: #4c533f;
+    color: #ffffff;
+    line-height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 2em;
+    // padding: 0 2em;
+    text-transform: uppercase;
+    @include from(lg) {
+      font-size: get-vw(22px);
+    }
+    > img {
+      width: auto;
+      height: 1em;
+    }
+  }
+}

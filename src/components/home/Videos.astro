@@ -1,0 +1,14 @@
+---
+import { videosList } from "@/data/videos-list";
+import Video from "../Video.astro";
+
+
+
+---
+<section class="card-grid Home-videos">
+  {
+    videosList.map(item=>(
+      <Video id={item}/>
+    ))
+  }
+</section>

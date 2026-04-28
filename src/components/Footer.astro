@@ -1,0 +1,44 @@
+---
+import { contact } from "@/data/contact";
+
+
+const {address, whatsapp, emailFacturas} = contact
+
+const formatPhone = (phone:string) => {
+  const str = phone.toString();
+  return `${str.slice(0, 2)} ${str.slice(2, 6)} ${str.slice(6)}`;
+};
+
+const phoneText:any = []
+
+whatsapp.forEach((phone) => {
+  phoneText.push(formatPhone(phone));
+});
+---
+
+<footer class="Footer">
+
+  <ul class="Footer__data">
+    <li><span>Domicilio: </span>{address}</li>
+    <li>
+      <span>Whatsapp: </span>
+      {
+        whatsapp.map((phone,i)=>(
+          <Fragment>
+            <a href={`https://wa.me/+521${phone}`} target="_blank" rel="noopener noreferrer">{phoneText[i]}</a>
+            <i> / </i>
+          </Fragment>
+        ))
+      }
+    </li>
+    <li><span>Facturas: </span>{emailFacturas}</li>
+  </ul>
+  <div class="Footer__copy">
+    <p>&copy; <span id="currentYear"></span> AADOCCSA | Desarrollado por: <a href="https://tinonav.netlify.app/" target="_blank">Tino Navarro</a><p>
+  </div>
+</footer>
+<script>
+  const currentYearElem = document.getElementById('currentYear') as HTMLElement
+  const currentYear = new Date().getFullYear();
+  currentYearElem.innerText = `${currentYear}`
+</script>

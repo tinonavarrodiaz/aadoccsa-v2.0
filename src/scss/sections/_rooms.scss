@@ -1,0 +1,136 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.Habitaciones{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 7em;
+  @include from(lg) {
+    // max-width: 6;
+    margin-top: get-vw(200px);
+  }
+}
+
+.Rooms{
+  display: grid;
+  gap: 5vw;
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  margin: 0 auto get-vw(172px);
+  @media screen and (width < 900px) and (orientation: portrait){
+    grid-template-columns: 1fr;
+    row-gap: 3em;
+    margin: 0 auto 5em;
+  }
+}
+.room{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  font-family: 'GeneralSans-Regular';
+  cursor: pointer;
+  h2{
+    // margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'GeneralSans-Regular', sans-serif;
+    font-size: 1rem;
+    // text-align: center;
+    letter-spacing: 2px;
+  }
+  &__gallery{
+    width: 100%;
+    height: var(--room-width);
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin-bottom: 0 !important;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  small{
+    margin-top: -1rem;
+    text-align: center;
+  }
+  p{
+    margin-bottom: 1em;
+    text-align: left;
+    line-height: 1.2;
+    &:last-child, &:only-child{
+      margin-bottom: 0;
+      margin-top:1rem;
+    }
+  }
+}
+.Modal-room{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5%;
+  z-index: 1000;
+  img{
+    width: auto;
+    height: auto;
+    max-width: 70%;
+    max-height: 80vh;
+    object-fit: contain;
+    // border: 20px solid #fff;
+    box-shadow: 0 0 0 10px rgba(255,255,255,1);
+    border-radius: .1em;
+  }
+  .nav{
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 20%;
+    height: 20%;
+    max-width: 60px;
+    max-height: 60px;
+    min-width: 40px;
+    min-height: 40px;
+    cursor: pointer;
+    // &.prev{
+    //   left: 20%;
+    // }
+    // &.next{
+    //   right: 20%;
+    // }
+  }
+  .CloseModal{
+    position: absolute;
+    top: 5vh;
+    right: 10vw;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      transform-origin: center;
+    }
+    &:before{
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &:after{
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

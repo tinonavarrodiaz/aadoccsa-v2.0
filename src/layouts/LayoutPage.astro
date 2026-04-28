@@ -1,0 +1,51 @@
+---
+import '@fontsource/passion-one/400.css';
+import '@fontsource/passion-one/700.css';
+import 'hamburgers/dist/hamburgers.min.css';
+import Head from '@/components/seo/Head.astro';
+import Header from '@/components/Header.astro';
+import '@/scss/main.scss';
+import Footer from '@/components/Footer.astro';
+
+function createSlug(text:string) {
+  return text
+    .toLowerCase()                          // minúsculas
+    .normalize("NFD")                       // descomponer caracteres acentuados
+    .replace(/[\u0300-\u036f]/g, "")        // eliminar diacríticos (tildes, etc.)
+    .replace(/[^a-z0-9\s-]/g, "")          // eliminar caracteres especiales
+    .trim()                                 // quitar espacios al inicio/fin
+    .replace(/\s+/g, "-")                   // espacios → guiones
+    .replace(/-+/g, "-");                   // evitar guiones dobles
+}
+
+interface Props {
+  banner: string;
+  page: string;
+  back?: string
+}
+
+const { banner, page, back = "true" } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="es">
+		<Head/>
+    <body class={`${createSlug(page)} Page`}>
+      <Header page={page}/>
+      <main class="Main">
+      {
+        banner && (
+          <div class="banner">
+            <img src={banner} alt="Banner"/>
+          </div>
+        )
+      }
+      <h1 class="title-page"><span>Ponemos</span> a su disposición el <span>más alto</span> nivel de <span>servicio</span></h1>
+      <section class={`page-container ${back==="true" ? 'back' : ''}`}>
+        <slot />
+      </section>
+    </main>
+    <Footer/>
+	</body>
+</html>

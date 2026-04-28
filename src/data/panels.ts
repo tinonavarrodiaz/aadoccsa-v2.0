@@ -1,0 +1,1 @@
+export const imagesPanels = ["panel1.webp", "panel2.webp", "panel3.webp", "panel4.webp", "panel5.webp", "panel6.webp", "panel7.webp", "panel8.webp", "panel9.webp", "panel10.webp", "panel11.webp", "panel12.webp", "panel13.webp", "panel14.webp", "panel16.webp"]

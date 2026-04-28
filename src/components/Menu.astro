@@ -1,0 +1,61 @@
+---
+import { menu } from "@/data/menu";
+interface Props {
+  page : string
+}
+const {page} = Astro.props
+---
+
+
+<nav class="main-nav">
+  <button
+    class="hamburger hamburger--squeeze hidden"
+    type="button"
+    id="ToggleBtn"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <ul class="main-menu">
+    {
+      menu.map((item)=>(
+        <li class="main-menu__item">
+          <a href={item.path} class={`${page===item.title ? 'selected': ''}`}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  const toggleBtn = document.getElementById('ToggleBtn') as HTMLButtonElement;
+  const menu = document.querySelector('.main-menu') as HTMLDListElement;
+  toggleBtn.addEventListener('click', function () {
+    // alert('funciona');
+    toggleBtn.classList.toggle('is-active');
+    menu.classList.toggle('is-active');
+    // submenu.forEach((el)=>{
+    //   el.querySelector('.Menu__sub')?.classList.remove('is-active')
+    // })
+
+  });
+</script>
+<script>
+  function getFlexGap(container:any) {
+  const children = [...container.children];
+  if (children.length < 2) return 0;
+
+  const rect1 = children[0].getBoundingClientRect();
+  const rect2 = children[1].getBoundingClientRect();
+
+  // Para flex-direction: row
+  return rect2.left - rect1.right;
+}
+
+const gap = (getFlexGap(document.querySelector('.main-menu')) * -1) / 2;
+document.documentElement.style.setProperty('--column-gap', gap.toString());
+console.log(gap); // px reales entre elementos
+
+</script>

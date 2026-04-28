@@ -1,0 +1,30 @@
+---
+import HeaderTop from "./HeaderTop.astro";
+import Menu from "./Menu.astro";
+
+interface Props {
+  page : string
+}
+const {page} = Astro.props
+
+
+const array = [];
+for (let i = 0; i < 250; i++) {
+  array.push(i);
+}
+---
+
+<header class="Header">
+  <!-- <div class="Header__snowflakes">
+    {
+      array.map((i) => (
+        <div class="snowflake"></div>
+      ))
+    }
+  </div> -->
+  <HeaderTop/>
+  <a href="/" class="Header__logo">
+    <img src="/img/logo.svg" alt="AADOCCSA LOGO" />
+  </a>
+  <Menu page={page}/>
+</header>

@@ -1,0 +1,43 @@
+---
+import LayoutPage from "@/layouts/LayoutPage.astro";
+const city = "Guadalajara"
+import { contact } from "@/data/contact";
+import Map from "@/components/Map.astro";
+
+
+const {address, whatsapp, emailFacturas} = contact
+
+const formatPhone = (phone:string) => {
+  const str = phone.toString();
+  return `${str.slice(0, 2)} ${str.slice(2, 6)} ${str.slice(6)}`;
+};
+
+const phoneText:any = []
+
+whatsapp.forEach((phone) => {
+  phoneText.push(formatPhone(phone));
+});
+---
+
+<LayoutPage banner="/img/magnum17.jpg" page="Contacto" back="false">
+  <h2>Aire Acondicionado de Occidente S.A de C.V.</h2>
+  <h3 class="city">{city}</h3>
+  <div class="contacto__grid">
+    <ul class="contacto__data">
+      <li class="contacto__address">{address}</li>
+      <p class="contacto__name">Whatsapp: </p>
+        {
+          whatsapp.map((phone,i)=>(
+            <Fragment>
+              <li class="contacto__phone">
+                <a href={`https://wa.me/+521${phone}`} target="_blank" rel="noopener noreferrer">{phoneText[i]}</a>
+              </li>
+            </Fragment>
+          ))
+        }
+        <p class="contacto__name">Facturas:</p>
+      <li class="contacto__email">{emailFacturas}</li>
+    </ul>
+    <Map/>
+  </div>
+</LayoutPage>

@@ -1,23 +1,25 @@
+---
+import '@fontsource/passion-one/400.css';
+import '@fontsource/passion-one/700.css';
+import 'hamburgers/dist/hamburgers.min.css';
+import Head from '@/components/seo/Head.astro';
+import Header from '@/components/Header.astro';
+import '@/scss/main.scss';
+import Footer from '@/components/Footer.astro';
+
+interface Props {
+  page?: string;
+}
+
+const { page } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
+<html lang="es">
+		<Head/>
 	<body>
+    <Header page=page/>
 		<slot />
+    <Footer/>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

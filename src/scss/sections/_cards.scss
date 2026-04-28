@@ -1,0 +1,106 @@
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+
+.card-grid {
+  padding: 1em 10%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  // column-gap: 2rem;
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    row-gap: 2em;
+  }
+
+  @media (min-width: 1400px) {
+    padding: 1em 15%;
+  }
+}
+
+.Card {
+  text-align: center;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 95%;
+    background: rgba(#fff, .5);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &:last-child::after {
+    display: none;
+  }
+
+  // &:nth-child(odd) {
+  //   background: lightgrey;
+  // }
+
+  h2 {
+    margin-bottom: 2rem;
+    // background: lightcoral;
+    // border: 1px solid;
+    line-height: 2em;
+    display: table;
+    padding: 0 2em;
+    background: url('/img/title-bg.png') 100% 100%/cover;
+    color: #FFF;
+  }
+
+
+  li {
+    margin-bottom: 1em;
+
+  }
+
+  img {
+    width: 60%;
+    margin: 0 auto;
+
+    &.syp-logo {
+      width: 20%;
+      background: #fff;
+      padding: .5em;
+    }
+  }
+
+  a {
+    display: block;
+    margin-top: auto;
+    position: relative;
+    padding-top: .5em;
+    font-weight: 700;
+    color: #fdfdfd;
+
+    @media (max-width: 1024px) {
+      margin-top: 2em;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 300%;
+      height: 1px;
+      background: rgba(#fff, .5);
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.Home-videos {
+  gap: 2em;
+}

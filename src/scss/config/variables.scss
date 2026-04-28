@@ -1,0 +1,31 @@
+@use 'sass:color';
+
+@use '../mixins/mixins' as *;
+@use '../functions/functions' as *;
+:root {
+  --main-color: rgb(191, 195, 194);
+  --main-color-alt: rgb(232, 227, 223);
+  --main-color-dark: hsl(221, 100%, 20%);
+  --color: hsl(81, 14%, 29%);
+  --color-alt: rgb(76, 83, 63);
+  --color-secondary: rgb(76, 83, 63);
+  --color-footer: rgb(191, 195, 194);
+  --bg-color: var(--main-color-alt);
+
+  --max-width: unset;
+  --font-body: 'Muli', sans-serif;
+  --font-title: 'Passion One', serif;
+  --font-size: 16px;
+  --header-height: 60px;
+  @include from(lg) {
+    --button-width: 50px;
+    --width: 400px;
+    --max-width: none;
+    --max-width: 1200px;
+    --header-height: #{get-vw(111px)};
+  }
+  @include from(xxl) {
+    --max-width: none;
+    --width: 450px;
+  }
+}
