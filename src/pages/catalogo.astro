@@ -1,0 +1,468 @@
+---
+import LayoutPage from "@/layouts/LayoutPage.astro";
+
+// src/components/ProductList.astro
+
+export const productos = {
+  Minisplit: [
+    { name: "Inverter X", image: "/img/productos/new/inverterx.jpg", ficha: "https://mirage.egnyte.com/dl/vDkmpxookg/Minisplit_Inverter_Inverter_X.pdf" },
+    { name: "Magnum 17", image: "/img/productos/nueva/magnum17.jpg", ficha: "pdf/MAGNUM17.pdf" },
+    { name: "Magnum 19", image: "/img/new/magnum19.jpg", ficha: "pdf/MAGNUM19.pdf" },
+    { name: "X One", image: "/img/productos/new/xone.jpg", ficha: "https://mirage.egnyte.com/dl/9f0ETiP0nW/Minisplit_X_Max.pdf_" },
+    { name: "X2", image: "/img/productos/new/x2.jpg", ficha: "/img/productos/new/x2-ft.jpg" },
+    { name: "Bluplus", image: "/img/productos/new/bluplus.jpg", ficha: "assets/pdf/new/Blu-Plus.pdf" },
+    { name: "RVI", image: "/img/productos/new/rvi.jpg", ficha: "assets/pdf/new/Brochure-RVI-2019.pdf" },
+    { name: "CI", image: "/img/productos/new/ci.jpg", ficha: "assets/pdf/new/Ci.pdf" },
+    { name: "RVI Central", image: "/img/productos/new/rvicentral.jpg", ficha: "assets/pdf/new/Fact-Sheets-RVI-Central.pdf" },
+    { name: "CI Magnum", image: "/img/productos/new/cimagnum.jpg", ficha: "assets/pdf/new/CI-MAGNUM.pdf" },
+    { name: "WIFI 2018", image: "/img/new/WIFI-2018.jpg", ficha: "pdf/WIFI-2018.pdf" },
+    { name: "UVC Inverter", image: "/img/nuevo1/imagen_1.png", ficha: "assets/pdf/nuevos/fact_sheets_uvc.pdf" },
+    { name: "VOX Inverter", image: "/img/nuevo1/imagen_3.png", ficha: "assets/pdf/nuevos/FACT_SHEETS_VOX.pdf" },
+    { name: "Magnum 19 Platinium", image: "/img/nuevo1/imagen_4.png", ficha: "assets/pdf/nuevos/MAGNUM_PLATINUM_19e.pdf" },
+    { name: "Inverter X", image: "/img/nuevo1/imagen_5.png", ficha: "assets/pdf/nuevos/Fact-Sheets-Inverter-X.pdf" },
+    { name: "LIFE 12", image: "/img/nuevo1/imagen_6.png", ficha: "assets/pdf/nuevos/Minisplit_LIFE12.pdf" },
+    { name: "X ONE", image: "/img/nuevo1/imagen_7.png", ficha: "assets/pdf/nuevos/Minisplit_X_One.pdf" },
+    { name: "Q 17", image: "/img/nuevo1/imagen_8.png", ficha: "assets/pdf/nuevos/Q17.pdf" },
+    { name: "X PLUS", image: "/img/nuevo1/imagen_9.png", ficha: "assets/pdf/nuevos/X-PLUS.pdf" },
+    { name: "XR", image: "/img/nuevo1/imagen_10.png", ficha: "assets/pdf/nuevos/XR.pdf" },
+  ],
+  LineaHogar: {
+    CalentadoresDeAgua: [
+      { name: "Flux 16L", image: "/img/productos/small/flux16l.jpg", ficha: "/productos/images/hogar/calentadores/flux-16l/tabla-16l.jpg" },
+      { name: "Flux 10L", image: "/img/productos/small/flux10l.jpg", ficha: "/productos/images/hogar/calentadores/flux-10l/tabla-10l.jpg" },
+      { name: "Flux 6L", image: "/img/productos/small/flux6l.jpg", ficha: "/productos/images/hogar/calentadores/flux-6l/tabla-6l.jpg" },
+    ],
+    Frigobar: [
+      { name: "Refx 10", image: "/img/productos/small/reflex10.jpg", ficha: "/productos/images/hogar/frigobar/reflex10/tabla-ref10.jpg" },
+      { name: "Refx 20", image: "/img/productos/small/reflex20.jpg", ficha: "/productos/images/hogar/frigobar/reflex20/tabla-ref20.jpg" },
+      { name: "Refx 30", image: "/img/productos/small/reflex30.jpg", ficha: "/productos/images/hogar/frigobar/reflex30/tabla-ref20.jpg" },
+    ],
+    DispensadoresDeAgua: [
+      { name: "Disx 10", image: "/img/productos/small/disx10.jpg", ficha: "/productos/images/hogar/dispensadores/disx10/tabla-disx10.jpg" },
+      { name: "Disx 20", image: "/img/productos/small/disx20.jpg", ficha: "/productos/images/hogar/dispensadores/disx20/tabla-disx20.jpg" },
+      { name: "Disx 30", image: "/img/productos/small/disx30.jpg", ficha: "/productos/images/hogar/dispensadores/disx30/tabla-disx30.jpg" },
+    ],
+    CampanasParaCocina: [
+      { name: "Velox 90L", image: "/img/productos/small/velox90l.jpg", ficha: "/productos/images/hogar/campanas/velox90l/tabla-90l.jpg" },
+      { name: "Velox 90N", image: "/img/productos/small/velox90n.jpg", ficha: "/productos/images/hogar/campanas/velox90n/tabla-v90n.jpg" },
+      { name: "Velox 90R", image: "/img/productos/small/velox90r.jpg", ficha: "/productos/images/hogar/campanas/velox90r/tabla-v90r.jpg" },
+      { name: "Velox 60L", image: "/img/productos/small/verlox60l.jpg", ficha: "/productos/images/hogar/campanas/verlox60l/tablavelox60l.jpg" },
+      { name: "Velox 60S", image: "/img/productos/small/verlox60s.jpg", ficha: "/productos/images/hogar/campanas/verlox60s/tabla-velox60s.jpg" },
+      { name: "Velox 75", image: "/img/productos/small/verlox75.jpg", ficha: "/productos/images/hogar/campanas/verlox75/tabla-v75.jpg" },
+    ],
+    ParrillasParaCocina: [
+      { name: "Sparx 90B", image: "/img/productos/small/sparx90b.jpg", ficha: "/productos/images/hogar/parrillas/sparx90b/tabla-s90b.jpg" },
+      { name: "Sparx 90S", image: "/img/productos/small/sparx90s.jpg", ficha: "/productos/images/hogar/parrillas/sparx90s/tabla-s90s.jpg" },
+      { name: "Sparx 80", image: "/img/productos/small/sparx80.jpg", ficha: "/productos/images/hogar/parrillas/sparx80/tabla-s80.jpg" },
+      { name: "Sparx 75", image: "/img/productos/small/sparx75.jpg", ficha: "/productos/images/hogar/parrillas/sparx75/tabla-s75.jpg" },
+      { name: "Sparx 60", image: "/img/productos/small/sparx60.jpg", ficha: "/productos/images/hogar/parrillas/sparx60/tabla-s60.jpg" },
+    ],
+    PurificadoresDeAgua: [
+      { name: "Hydrox 50R", image: "/img/productos/small/hydrox50r.jpg", ficha: "/productos/images/hogar/purificadores/hydrox50r/tabla-h50r.jpg" },
+      { name: "Hydrox 50A", image: "/img/productos/small/hydrox50a.jpg", ficha: "/productos/images/hogar/purificadores/hydrox50a/tabla-h50a.jpg" },
+      { name: "Hydrox 60", image: "/img/productos/small/hydrox60.jpg", ficha: "/productos/images/hogar/purificadores/hydrox60/tabla-h60.jpg" },
+      { name: "Hydrox 40", image: "/img/productos/small/hydrox40.jpg", ficha: "/productos/images/hogar/purificadores/hydrox40/tabla-h40.jpg" },
+    ],
+    MaquinasDeHielo: [
+      { name: "Icex 90", image: "/img/productos/small/icex40.jpg", ficha: "/productos/images/hogar/maquinasdehielo/icex90/tabla.jpg" },
+      { name: "Icex 60", image: "/img/productos/small/icex40.jpg", ficha: "/productos/images/hogar/maquinasdehielo/icex60/tabla1.jpg" },
+      { name: "Icex 40", image: "/img/productos/small/icex40.jpg", ficha: "/productos/images/hogar/maquinasdehielo/icex40/tabla-i40.jpg" },
+    ],
+    MaquinasGourmetDeCafe: [
+      { name: "Cappuxino", image: "/img/productos/small/cappuxino.jpg", ficha: "/productos/images/hogar/cafe/cappuxino/tabla-cappuxino.jpg" },
+    ],
+  },
+  Paquetes: [
+    { name: null, image: "/img/paquetes/paquetes01.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes02.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes03.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes07.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes08.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes09.jpg", ficha: null },
+    { name: null, image: "/img/paquetes/paquetes10.jpg", ficha: null },
+  ],
+  Divididos: [
+    { name: null, image: "/img/divididos/imagen01.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen02.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen03.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen04.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen05.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen06.jpg", ficha: null },
+    { name: null, image: "/img/divididos/imagen07.jpg", ficha: null },
+  ],
+  EnergiaSolar: [
+    { name: null, image: "/img/solar/solar1.jpg", ficha: null },
+    { name: null, image: "/img/solar/solar2.jpg", ficha: null },
+    { name: null, image: "/img/solar/solar3.jpg", ficha: null },
+    { name: null, image: "/img/solar/solar4.jpg", ficha: null },
+    { name: null, image: "/img/solar/solar5.jpg", ficha: null },
+  ],
+};
+
+const formatCategoryName = (key: string) => {
+  return key.replace(/([A-Z])/g, ' $1').trim();
+};
+
+console.log(formatCategoryName('Linea Hogar'))
+---
+<LayoutPage banner="/img/magnum32.jpg" page="Productos" back="false">
+  <h2>Somos Distribuidor Autorizado de los Productos:</h2>
+  <img src='/img/mirage-Logo.webp' alt="Logo Mirage" class="logo-brand">
+
+<div class="productos-contenedor">
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-target="minisplit">Minisplits</button>
+    <button class="tab-btn" data-target="linea-hogar">Línea Hogar</button>
+    <button class="tab-btn" data-target="paquetes">Paquetes</button>
+    <button class="tab-btn" data-target="divididos">Divididos</button>
+    <button class="tab-btn" data-target="energia-solar">Energía Solar</button>
+  </div>
+
+  <div id="minisplit" class="tab-content active">
+    <div class="grid-productos">
+      {productos.Minisplit.map((item, i) => (
+        <div class={`card Minisplit ${i>2 ? 'no-display' : ''}`}>
+          <img
+            src={item.image}
+            alt={item.name || "Producto sin nombre"}
+            onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'"
+          />
+          <div class="card-body">
+            <h3>{item.name || "Producto"}</h3>
+            {item.ficha && (
+              <a
+                href={item.ficha}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn"
+              >
+                Ver Ficha Técnica
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+      <button class="show-more" data-element="Minisplit">Ver Más</button>
+    </div>
+  </div>
+
+  <div id="linea-hogar" class="tab-content">
+    <div class="subtabs-nav">
+      {Object.keys(productos.LineaHogar).map((cat, index) => (
+        <button class={`subtab-btn ${index === 0 ? 'active' : ''}`} data-subtarget={cat}>
+          {formatCategoryName(cat)}
+        </button>
+      ))}
+    </div>
+
+    {Object.entries(productos.LineaHogar).map(([cat, items]) => (
+      <div id={cat} class={`subtab-content ${cat === Object.keys(productos.LineaHogar)[0] ? 'active' : ''}`}>
+        <div class="grid-productos">
+          {items.map((item) => (
+            <div class="card">
+              <img
+                src={item.image}
+                alt={item.name || "Producto sin nombre"}
+                onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'"
+              />
+              <div class="card-body">
+                <h3>{item.name || "Producto"}</h3>
+                {item.ficha && (
+                  <a
+                    href={item.ficha}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn"
+                  >
+                    Ver Ficha Técnica
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {["Paquetes", "Divididos", "EnergiaSolar"].map((categoryName) => (
+    <div id={categoryName.toLowerCase()} class="tab-content">
+      <div class="grid-productos">
+        {productos[categoryName as keyof typeof productos].map((item:any) => (
+          <div class="card">
+            <img
+              src={item.image}
+              alt={item.name || "Imagen de producto"}
+              onerror="this.src='https://via.placeholder.com/400x300?text=Sin+Imagen'"
+            />
+            {item.name && (
+              <div class="card-body">
+                <h3>{item.name}</h3>
+              </div>
+            )}
+            {item.ficha && (
+              <div class="card-body">
+                <a
+                  href={item.ficha}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  Ver Ficha Técnica
+                </a>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+</div>
+</LayoutPage>
+<style lang="scss">
+  .productos-contenedor {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    /* background-color: #0f172a; */
+    background-color: #eeeeee;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Pestañas Principales */
+  .tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    @media (max-width:1023px){
+      flex-wrap: wrap;
+
+    }
+
+  }
+
+  .tab-btn {
+    background: #fdfdfd;
+    border: none;
+    color: #444;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    @media (max-width:1023px){
+      width: 100%;
+
+    }
+  }
+
+  .tab-btn:hover {
+    color: hsl(199, 30%, 40%);
+  }
+
+  .tab-btn.active {
+    color: hsl(199, 32%, 30%);
+    background-color: hsl(199, 32%, 64%);
+    font-weight: bold;
+  }
+
+  /* Pestañas Anidadas (Línea Hogar) */
+  .subtabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .subtab-btn {
+    background-color: #1e293b;
+    background-color: #eeeeee;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .subtab-btn:hover, .subtab-btn.active {
+    background-color: #10b981;
+    color: #ffffff;
+    border-color: #10b981;
+    font-weight: bold;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .subtab-content {
+    display: none;
+  }
+
+  .subtab-content.active {
+    display: block;
+  }
+
+  /* Cuadrícula de Productos */
+  .grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .card {
+    background-color: #fdfdfd;
+    width: 95%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .card img {
+    width: 90%;
+    margin: 0 auto;
+    height: 192px; /* equivalentes a h-48 */
+    object-fit: contain;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-body h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn {
+    display: block;
+    text-align: center;
+    background-color: #059669;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #047857;
+  }
+  .no-display{
+    @media (max-width:1023px){
+      display: none;
+
+    }
+  }
+  button.show-more{
+    border: 1px solid;
+    display: table;
+    color: #444;
+    line-height: 2em;
+    @media (min-width:1024px){
+      display: none;
+
+    }
+  }
+  .logo-brand{
+    width: 60%;
+    max-width: 350px;
+    margin: 4em auto;
+  }
+</style>
+
+<script>
+import { createConsoleLogger } from "astro/app";
+
+  // Cambiar de tab principal
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      const targetElement = document.getElementById(target);
+      if (targetElement) {
+        targetElement.classList.add('active');
+      }
+    });
+  });
+
+  // Cambiar de subtab en Línea Hogar
+  const subtabButtons = document.querySelectorAll('.subtab-btn');
+
+  subtabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-subtarget');
+
+      const container = button.closest('#linea-hogar');
+      if (!container) return;
+
+      const groupButtons = container.querySelectorAll('.subtab-btn');
+      const groupContents = container.querySelectorAll('.subtab-content');
+
+      groupButtons.forEach(btn => btn.classList.remove('active'));
+      groupContents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      const targetElement = container.querySelector(`#${target}`);
+      if (targetElement) {
+        targetElement.classList.add('active');
+      }
+    });
+  });
+
+  const noShow = [...document.querySelectorAll('.no-display')]
+  const showMoreButton = document.querySelector('button.show-more') as HTMLButtonElement
+  showMoreButton.addEventListener('click' , e=>{
+    const target = e.currentTarget as HTMLButtonElement
+    const dataEle = target.getAttribute('data-element') as string
+    console.log(dataEle)
+    noShow.forEach(item=>{
+      if(item.classList.contains(dataEle)){
+        item.classList.remove('no-display')
+        showMoreButton.remove()
+      }
+    })
+  })
+
+</script>

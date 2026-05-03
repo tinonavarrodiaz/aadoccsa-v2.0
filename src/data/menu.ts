@@ -8,7 +8,7 @@ export const menu = [
     path: '/paneles-solares'
   },
   {
-    title: 'Ventilación y Yxtracción',
+    title: 'Ventilación y Extracción',
     path: '/ventilación-y-extracción'
   },
 

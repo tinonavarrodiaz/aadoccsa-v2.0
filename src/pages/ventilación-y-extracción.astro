@@ -1,0 +1,260 @@
+---
+import LayoutPage from "@/layouts/LayoutPage.astro";
+---
+
+<LayoutPage banner="/img/syp/syp-banner.jpg" page="Ventilación y Extracción" back="false">
+  <h2>Somos Distribuidor Autorizado de los Productos:</h2>
+  <img src='/img/s&p-logo.svg' alt="Logo Soler y Palau" class="logo-brand syP">
+  <div class="productos-tabs">
+
+  </div>
+</LayoutPage>
+<style lang="scss">
+  .productos-contenedor {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    /* background-color: #0f172a; */
+    background-color: #eeeeee;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Pestañas Principales */
+  .tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    @media (max-width:1023px){
+      flex-wrap: wrap;
+
+    }
+
+  }
+
+  .tab-btn {
+    background: #fdfdfd;
+    border: none;
+    color: #444;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    @media (max-width:1023px){
+      width: 100%;
+
+    }
+  }
+
+  .tab-btn:hover {
+    color: hsl(199, 30%, 40%);
+  }
+
+  .tab-btn.active {
+    color: hsl(199, 32%, 30%);
+    background-color: hsl(199, 32%, 64%);
+    font-weight: bold;
+  }
+
+  /* Pestañas Anidadas (Línea Hogar) */
+  .subtabs-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .subtab-btn {
+    background-color: #1e293b;
+    background-color: #eeeeee;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .subtab-btn:hover, .subtab-btn.active {
+    background-color: #10b981;
+    color: #ffffff;
+    border-color: #10b981;
+    font-weight: bold;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .subtab-content {
+    display: none;
+  }
+
+  .subtab-content.active {
+    display: block;
+  }
+
+  /* Cuadrícula de Productos */
+  .grid-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .card {
+    background-color: #fdfdfd;
+    width: 95%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .card img {
+    width: 90%;
+    margin: 0 auto;
+    height: 192px; /* equivalentes a h-48 */
+    object-fit: contain;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-body h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .btn {
+    display: block;
+    text-align: center;
+    background-color: #059669;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn:hover {
+    background-color: #047857;
+  }
+  .no-display{
+    @media (max-width:1023px){
+      display: none;
+
+    }
+  }
+  button.show-more{
+    border: 1px solid;
+    display: table;
+    color: #444;
+    line-height: 2em;
+    @media (min-width:1024px){
+      display: none;
+
+    }
+  }
+  .logo-brand{
+    width: 60%;
+    max-width: 150px;
+    margin: 4em auto;
+    background: #fdfdfd;
+    padding: 1em;
+  }
+</style>
+
+<script>
+import { createConsoleLogger } from "astro/app";
+
+  // Cambiar de tab principal
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      const targetElement = document.getElementById(target);
+      if (targetElement) {
+        targetElement.classList.add('active');
+      }
+    });
+  });
+
+  // Cambiar de subtab en Línea Hogar
+  const subtabButtons = document.querySelectorAll('.subtab-btn');
+
+  subtabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-subtarget');
+
+      const container = button.closest('#linea-hogar');
+      if (!container) return;
+
+      const groupButtons = container.querySelectorAll('.subtab-btn');
+      const groupContents = container.querySelectorAll('.subtab-content');
+
+      groupButtons.forEach(btn => btn.classList.remove('active'));
+      groupContents.forEach(content => content.classList.remove('active'));
+
+      button.classList.add('active');
+      const targetElement = container.querySelector(`#${target}`);
+      if (targetElement) {
+        targetElement.classList.add('active');
+      }
+    });
+  });
+
+  const noShow = [...document.querySelectorAll('.no-display')]
+  const showMoreButton = document.querySelector('button.show-more') as HTMLButtonElement
+  showMoreButton.addEventListener('click' , e=>{
+    const target = e.currentTarget as HTMLButtonElement
+    const dataEle = target.getAttribute('data-element') as string
+    console.log(dataEle)
+    noShow.forEach(item=>{
+      if(item.classList.contains(dataEle)){
+        item.classList.remove('no-display')
+        showMoreButton.remove()
+      }
+    })
+  })
+
+</script>
